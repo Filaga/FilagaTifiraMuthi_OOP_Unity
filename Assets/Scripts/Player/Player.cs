@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 
     PlayerMovement playerMovement;
     Animator animator;
+    bool hasWeapon = false;
 
     void Awake()
     {
@@ -44,5 +45,14 @@ public class Player : MonoBehaviour
             animator.SetBool("IsMoving", playerMovement.IsMoving());
         }
     }
-}
 
+    public void PickUpWeapon()
+    {
+        hasWeapon = true;
+    }
+
+    public bool HasWeapon()
+    {
+        return hasWeapon;
+    }
+}

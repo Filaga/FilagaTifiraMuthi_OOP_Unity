@@ -14,17 +14,23 @@ public class PlayerMovement : MonoBehaviour
     Vector2 stopFriction;
     Rigidbody2D rb;
 
-    // Start is called before the first frame update
+    private float minX, maxX, minY, maxY;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        moveVelocity = 2 * maxSpeed/timeToFullSpeed;
-        moveFriction = -2 * maxSpeed/((timeToFullSpeed)*(timeToFullSpeed));
-        stopFriction = -2 * maxSpeed/((timeToStop)*(timeToStop));
-        
+        moveVelocity = 2 * maxSpeed / timeToFullSpeed;
+        moveFriction = -2 * maxSpeed / (timeToFullSpeed * timeToFullSpeed);
+        stopFriction = -2 * maxSpeed / (timeToStop * timeToStop);
+
+        Vector3 bottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 topRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        minX = bottomLeft.x +0.35f;
+        maxX = topRight.x -0.35f;
+        minY = bottomLeft.y;
+        maxY = topRight.y -0.6f;
     }
 
-    // Update is called once per frame
     public void Move()
     {
         float inputX = Input.GetAxis("Horizontal");
@@ -43,9 +49,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+
+        MoveBound();
     }
 
-    Vector2 GetFriction(){
+    Vector2 GetFriction()
+    {
         if (moveDirection.magnitude > 0)
         {
             return moveFriction * moveDirection;
@@ -56,11 +65,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void MoveBound(){
+    void MoveBound()
+    {
+        Vector3 pos = transform.position;
 
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+        transform.position = pos;
     }
 
-    public bool IsMoving(){
+    public bool IsMoving()
+    {
         return rb.velocity.magnitude > 0;
     }
 }
