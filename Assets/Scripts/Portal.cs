@@ -7,10 +7,13 @@ public class Portal : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float rotateSpeed;
+    [SerializeField] private string sceneToLoad = "Main";
+    private LevelManager levelManager;
     Vector2 newPosition;
 
     void Start()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         ChangePosition();
     }
 
@@ -38,9 +41,9 @@ public class Portal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && levelManager != null)
         {
-            SceneManager.LoadScene("Main");
+            levelManager.LoadScene(sceneToLoad);
         }
     }
 

@@ -9,13 +9,14 @@ public class WeaponPickup : MonoBehaviour
 
     void Awake()
     {
-        weapon = null;
+        weapon = weaponHolder;
     }
 
     void Start()
     {
         if (weapon != null)
         {
+            Debug.Log("Weapon not null");
             TurnVisual(false);
         }
     }
@@ -24,10 +25,7 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (weapon != null)
-            {
-                Destroy(weapon.gameObject);
-            }
+            
 
             weapon = Instantiate(weaponHolder, other.transform);
             weapon.transform.localPosition = Vector3.zero;
