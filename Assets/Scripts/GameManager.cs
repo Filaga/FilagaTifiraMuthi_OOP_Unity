@@ -3,29 +3,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     public LevelManager LevelManager { get; private set; }
 
-    private void Awake()
+    void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
 
-        LevelManager = FindObjectOfType<LevelManager>();
+        Instance = this;
 
-        foreach (GameObject obj in FindObjectsOfType<GameObject>())
-        {
-            if (obj.tag != "MainCamera" && obj.tag != "Player")
-            {
-                obj.SetActive(false);
-            }
-        }
+        LevelManager = GetComponentInChildren<LevelManager>();
+
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(GameObject.Find("Main Camera"));
     }
 }
