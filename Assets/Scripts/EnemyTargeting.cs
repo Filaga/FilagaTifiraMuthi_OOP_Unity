@@ -8,6 +8,7 @@ public class EnemyTargeting : Enemy
     protected override void Start()
     {
         base.Start();
+        SetLevel(2);
         player = GameObject.FindWithTag("Player")?.transform;
     }
 

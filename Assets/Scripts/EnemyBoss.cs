@@ -11,6 +11,7 @@ public class EnemyBoss : Enemy
     protected override void Start()
     {
         base.Start();
+        SetLevel(3);
         float screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
         float screenHeight = Camera.main.orthographicSize;
         transform.position = new Vector3(Random.value > 0.5f ? -screenWidth : screenWidth, Random.Range(-screenHeight, screenHeight), 0);
@@ -35,15 +36,7 @@ public class EnemyBoss : Enemy
         }
         shootTimer -= Time.deltaTime;
 
-        /*if (weapon != null)
-        {
-            shootTimer += Time.deltaTime;
-            if (shootTimer >= shootInterval)
-            {
-                Shoot();
-                shootTimer = 0f;
-            }
-        }*/
+
     }
 
     private void Shoot()

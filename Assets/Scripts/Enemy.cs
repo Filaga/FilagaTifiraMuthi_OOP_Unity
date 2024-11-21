@@ -5,6 +5,8 @@ public class Enemy : MonoBehaviour
     public int level = 1;
 
     private Rigidbody2D rb;
+    public CombatManager combatManager;
+    public EnemySpawner enemySpawner;
 
     private void Awake()
     {
@@ -15,6 +17,28 @@ public class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         //FacePlayer();
+    }
+
+    public void SetLevel(int level)
+    {
+        this.level = level;
+    }
+
+    public int GetLevel()
+    {
+        return level;
+    }
+
+    private void OnDestroy()
+    {
+        if (combatManager != null)
+        {
+            combatManager.EnemyDefeated();
+        }
+        if (enemySpawner != null)
+        {
+            enemySpawner.EnemyDefeated();
+        }
     }
 
     /*private void FacePlayer()

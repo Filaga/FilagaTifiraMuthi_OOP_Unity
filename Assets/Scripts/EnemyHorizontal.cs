@@ -8,7 +8,7 @@ public class EnemyHorizontal : Enemy
     protected override void Start()
     {
         base.Start();
-
+        SetLevel(1);
         float screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
         float screenHeight = Camera.main.orthographicSize;
         transform.position = new Vector3(Random.value > 0.5f ? -screenWidth : screenWidth, Random.Range(-screenHeight, screenHeight), 0);

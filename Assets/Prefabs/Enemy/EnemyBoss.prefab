@@ -132,7 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630278fbccc35484482fe39274003e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 3
+  combatManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!114 &6084788858599971321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a673f080867b63438ed5b651d64450b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 3
+  combatManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
   weapon: {fileID: 7877626226101950023, guid: 0bcd38ad40c981f46a0bbb289abddb7a, type: 3}
   shootInterval: 2
   speed: 3
@@ -233,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dc77756200d6046893b8de8a65918a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 700
+  maxHealth: 50
 --- !u!114 &5679387642013596211
 MonoBehaviour:
   m_ObjectHideFlags: 0

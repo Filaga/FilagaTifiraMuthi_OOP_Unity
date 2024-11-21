@@ -23,6 +23,7 @@ public class HealthComponent : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+            
         }
     }
 }

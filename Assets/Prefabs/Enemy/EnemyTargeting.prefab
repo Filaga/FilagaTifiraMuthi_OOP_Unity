@@ -131,7 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630278fbccc35484482fe39274003e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 2
+  combatManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!114 &5826794091890983498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbaaab06c949a141b76454d8a58fafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  speed: 4
+  level: 2
+  combatManager: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  speed: 2
 --- !u!61 &7531488748246927490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -216,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dc77756200d6046893b8de8a65918a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 20
 --- !u!114 &3711249953310053572
 MonoBehaviour:
   m_ObjectHideFlags: 0
