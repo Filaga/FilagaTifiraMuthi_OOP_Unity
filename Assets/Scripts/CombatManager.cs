@@ -8,7 +8,6 @@ public class CombatManager : MonoBehaviour
 
     public float timer = 0;
     [SerializeField] private float waveInterval = 5f; 
-
     public int waveNumber = 1;
     public int totalEnemies = 0;
 
