@@ -10,6 +10,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float waveInterval = 5f; 
     public int waveNumber = 1;
     public int totalEnemies = 0;
+    public int point = 0;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class CombatManager : MonoBehaviour
         {
             spawner.combatManager = this;
         }
+
 
         StartWave();
     }
@@ -34,11 +36,14 @@ public class CombatManager : MonoBehaviour
                 totalEnemies += spawner.spawnCount;
             }
         }
+
     }
 
-    public void EnemyDefeated()
+    public void EnemyDefeated(int lvl)
     {
         totalEnemies--;
+
+        point = point + (1*lvl);
 
         if (totalEnemies <= 0)
         {

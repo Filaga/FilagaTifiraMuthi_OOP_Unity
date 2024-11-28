@@ -33,7 +33,8 @@ public class Enemy : MonoBehaviour
     {
         if (combatManager != null)
         {
-            combatManager.EnemyDefeated();
+            combatManager.EnemyDefeated(level);
+            
         }
         if (enemySpawner != null)
         {
@@ -41,16 +42,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /*private void FacePlayer()
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            Vector3 direction = (player.transform.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-        }
-    }*/
+
 }
 
 
